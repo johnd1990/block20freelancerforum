@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Freelancers</title>
+    <style>
+        /* CSS to add color, size, shape, and position attributes to HTML elements */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 20px;
+        }
+
+        #root {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333333;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            background-color: #f9f9f9;
+            border-radius: 4px;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .name {
+            font-weight: bold;
+        }
+
+        .age {
+            color: #999999;
+        }
+
+        .occupation {
+            font-style: italic;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script>
+        const users = [
+            { name: "John", age: 25, occupation: "gardener" },
+            { name: "Lenny", age: 51, occupation: "programmer" },
+            { name: "Andrew", age: 43, occupation: "teacher" },
+            { name: "Peter", age: 81, occupation: "teacher" },
+            { name: "Anna", age: 43, occupation: "teacher" },
+            { name: "Albert", age: 76, occupation: "programmer" },
+            { name: "Adam", age: 47, occupation: "teacher" },
+            { name: "Robert", age: 72, occupation: "driver" },
+        ];
+
+        function main() {
+            const rootElement = document.getElementById("root");
+
+            // Creates an h1 element and appends it to the rootElement
+            const h1 = document.createElement("h1");
+            h1.textContent = "FREELANCERS";
+            rootElement.appendChild(h1);
+
+            // Create the unordered list element
+            const ul = document.createElement("ul");
+
+            // Implement Dynamic Data: Loop through the users array and create li elements
+            users.forEach((user) => {
+                const li = document.createElement("li");
+                li.innerHTML = `
+          <span class="name">${user.name}</span>
+          <span class="age">Age: ${user.age}</span>
+          <span class="occupation">Occupation: ${user.occupation}</span>
+        `;
+                ul.appendChild(li);
+            });
+
+            // Append the unordered list to the root element
+            rootElement.appendChild(ul);
+        }
+
+        // Able to visit a webpage created using DOM manipulation and vanilla JavaScript
+        // Call the main function
+        main();
+    </script>
+</body>
+
+</html>
